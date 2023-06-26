@@ -1,0 +1,479 @@
+---
+title: 'SOC 103M Final Research Project: COVID-19, Performance,and USCD Students'
+author: "Anna Busel and Adriana Tello"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+## **Executive Summary **	
+|    The rise of the COVID-19 pandemic in Spring of 2020 altered the way the world ran and caused many industries and lifestyles to move toward an online focus. For university students, many academic institutions had to also shift towards a curriculum taught online for an unprecedented amount of time. The impact of the COVID-19 pandemic on college student performance became a topic of interest. A study conducted by Meeter et al. (2020) at the Vrije Universiteit Amsterdam looked into the effects of online learning affecting college students’ motivation and study habits during stay-at-home orders. The comparability of online learning and in-person learning has also been of interest with a study from Dumford et al. (2018) examining the online and blended learning in business disciplines and their effectiveness. Results from this study suggest that online courses are at least comparable to class-room based courses in achieving desired learning outcomes. Considering the work done by Dumford et al. (2018), we can assume and conclude that online learning should be just as comparable to in-person learning in terms of quality. We will be looking at student performance in the midst of the COVID-19 pandemic and compare it with data from previous years. In this research report we will look into the question of how did the COVID-19 crisis disrupt the performance of UCSD students in their classes based on their grades, study habits, and course and instructor recommendations across different years. For this study we will be analyzing students from the University of California San Diego. We will be referring to the University of California San Diego as UCSD in this report. Our studies found that grades, course recommendations, and instructor recommendations increased at the start of the pandemic and leveling off over time. 
+
+## **Background & Hypothesis **
+
+#### Introduction
+  Over the past few years the COVID-19 pandemic has changed the way universities run their classes. It is expected that the shift to online classes would have some sort of effect on the performance of students, which leads us to our question of how much of an impact did the move to online learning during the COVID-19 crisis have on the performance of college students in their classes based on their grades across different years? The impact of the COVID-19 pandemic on college student's performance is a topic of significant interest. Meeter et al. (2020) investigated how the shift to online learning affected college students' motivation and study results during stay-at-home orders. Online learning has also been a topic of interest, with a study from Dumford et al. (2018) examining the online and blended learning in the business disciplines and their effectiveness. Results from the Dumford et al. (2018) comparison studies suggest generally that online courses are at least comparable to classroom-based courses in achieving desired learning outcomes. With this in mind, we can assume that online learning is comparable to in person learning in terms of quality.
+
+##### Previous findings 
+  Much of the research on university learning during the COVID-19 pandemic has been conducted in Europe and Asia;  U.S. research has mostly focused on middle and high school students. There is a lack of comprehensive research on U.S. college student performance during the stay-at-home orders, though it has been concluded that there are multiple factors that contributed to how students felt about their progress. Meeter et al. (2020) found that students' motivation levels decreased during stay-at-home orders. The authors recommended that universities provide additional support to students, such as online tutoring and mental health services, to help mitigate the adverse effects of stay-at-home orders on motivation and study results; the need for these supports implies that performance was lower during the pandemic overall. However, the study also found that students reported being more efficient in their studies due to the availability of asynchronous lectures, less time spent commuting to and from school, and lack of social interaction, which may imply that performance was not greatly affected. Engelhardt et al. (2021) looked into the preliminary effects of one semester of online learning and compared them to the performance from the previous three semesters. The authors found that women benefited the most from online learning in the economic and statistics classes studied, going from having lower grades prior to online classes to having equalized grades with the men in these classes. These findings provide a surface understanding of what to expect in our future analysis. 
+  The study by Chiner et al. (2021) aimed to explore the difficulties that university students faced during the COVID-19 pandemic lockdown with online learning by examining availability and use of electronic devices, personal factors, and teaching factors. The majority of the participants had little or no experience in online learning, and over half of the students reported that their academic performance was worse than in face-to-face classes. The personal factors that most affected their academic performance were family responsibilities, psychological or emotional problems, an inappropriate study environment, and a bad internet connection. With regard to teaching factors, students complained about excessive assignments, lack of lesson explanations, loss of concentration during synchronous classes, having to learn through the computer screen, and feeling abandoned, among others. The study suggests that the transition to online learning could have negative effects on students' motivation to complete their work, which is consistent with the findings of Meeter et al. (2020). However, while Meeter et al. (2020) concluded that the COVID-19 lockdown did not have a very significant effect on student performance, the findings of this study contradict that conclusion. UCSD greatly encouraged students to live at home(not on campus) for the first year of the pandemic, suggesting that a significant amount of students may have been affected by the personal factors mentioned in this study, which would have a negative impact on their performance. Still, Chiner et al. (2021) concluded that teaching factors had more of a negative impact on students than personal factors, which suggests that the teacher recommendation percentage may be correlated with student performance.
+  Although Meeter et al. (2020) and Chiner et al. (2021) observed a significant decline in student motivation due to pandemic-related teaching strategies, a separate study conducted in Canada by Hadwin et al. (2022) explored the factors that may have a beneficial impact on student academic performance during the pandemic. The study enrolled first year college students in a self-regulated learning (SRL) course, which provided instruction on the importance of setting personal goals and standards by developing an understanding of their motivation, emotions, cognition, and behaviors and creating a process to adapt their techniques to new challenges. The efficacy of this program was evaluated through both subjective self-assessments of academic performance(expected overall GPA for the year), as well as objective institutional measures(GPA on a 9-point scale). Upon completion of the program, students exhibited a reduction in their proclivity to engage in motivation appraisal practices, such as critically analyzing the purpose of the topics covered in their other courses and evaluating the practical significance of the content they were learning. Thus, it is plausible that the students' proficiency in SRL is a potential variable that may impact the outcomes of our investigation. However, given the large sample size and the diversity of courses and academic terms under scrutiny, the influence of a few students who possess exceptional SRL skills is likely to be negligible. Moreover, since the study is conducted across multiple years within the same academic institution, we can assume that the student population across all classes has a comparable distribution of SRL abilities, thus ensuring that any observed effects can be generalized, as we are comparing the same population over time.
+
+#### Current Study 
+  Our study aims to address these limitations by looking at student data from before and after stay-at-home orders, across different quarters, and across all majors offered at UCSD. UCSD is an academically rigorous institution known for its STEM programs and research. Historically, the majority of classes offered at UCSD have been in-person with the exception of its extended studies courses with 70% of them being offered online (UC San Diego Division of Extended Studies). With the rise of COVID-19 in 2020, it was not safe to continue having in-person instruction. Knowing this, we assumed that the accommodation to the global crisis would have had some sort of effect on UCSD students. It was encouraged for students to return home and not live on campus in fear of spreading COVID-19. Students who continued living on campus felt isolated which can impact their studies due to strict social distancing rules and policies.The motivation levels of students decreased during stay-at-home orders, but apparently students reported greater efficiency in their studies (Meeter et al. 2020). There are many reasons as to why efficiency increased. Possibilities, like, forgoing the need to commute to class and allocating more time for studying are endless. While online based courses are just as effective as in-person classes, we cannot guarantee that this is the universal experience. Both personal and teaching factors impacted student motivation, but teaching factors had a more significant impact (Chiner et al. 2021). These personal factors can include, but are not limited to, emotional and psychological problems, inappropriate study environments, and poor internet access. In regards to teaching factors, students complained about excessive assignments, lack of lesson explanation, loss of concentration during synchronous classes, having to learn through a computer screen, and sentiments of abandonment (Chiner et al. 2021). We hypothesize that all these disruptions caused by COVID-19 resulted in a significant change in student performance.  
+
+  We intend to find a prolonged effect of online learning on student performance, if any, and look into yearly data. Our objective is to conduct a comprehensive analysis by comparing the data from the period of pandemic online learning, beginning in spring quarter of 2020, with that of the previous years. This will allow us to control for any existing patterns in class GPA, and present accurate findings on the specific effect of COVID-19 pandemic learning on student performance. This study will advance the current state of research by incorporating an extensive dataset and examining any emerging trends across various academic disciplines that have not been explored before.
+
+
+## **Threats to Validity**
+|    While our study will focus on the effects of COVID-19 as a whole, there are many factors that we cannot account for due to limitations. There can be skepticism about comparing online instruction to in-person classes, but  previous research has found that they both offer similar quality of instruction (Meeter et al. 2020). While significant, the findings from previous studies have limitations that can pose validity threats to our research. 
+|    The study from Meeter et al. (2020) is subject to some limitations: a restricted sample size, a narrow focus on surveying students from a single academic discipline, and an absence of data discussing potential variances in student motivation levels between the fall and spring semesters prior to the pandemic. A study we looked at to reinforce the immediate effects of COVID-19 on student performance during the start of the  pandemic, Engelhardt et al. (2021), acknowledged that their research was not comprehensive enough to speak on all subjects other than the three they analyzed, which include macroeconomics, microeconomics, and statistics. Looking at their study critically, their findings only provide results for one semester of disruption which would only provide immediate results over prolonged effects. The study from Dumford et al. (2018) also only focused on business disciplines in online learning. Knowing this, we cannot completely assume that all departments will behave the same way online. The study from Chiner et al. (2021) was conducted with a convenience sample of university students in Spain. Taking this into account, we need to consider generalization particularly to UCSD in the United States.
+|    Other limitations that may pose threats to the validity of our study include salient issues such socioeconomic status, mental health, and the fact that we will only be looking at UCSD students for this study. These issues can influence our results in ways we cannot explicitly address with our data. We can acknowledge that these influences are present and that students reacted differently to COVID-19, but we cannot address these issues because they are too specific and would need to be looked at the individual level. Our research will not encompass the entire population of college students’ experience, but is an analysis of UCSD students. Moving forward, we must take extra precautions in our controls and isolate the problem we intend to look at. 
+
+## **Controls **
+|    When looking to isolate the effect of the disruption of the COVID-19 pandemic on student performance, it is important to control for populations that are more susceptible to change over the average student experience. To support the internal validity of our conclusions, we decided that the best course of action would be to drop data from lower division courses, remove data from departments that had less than five courses, and to forgo findings of the term Spring Quarter of 2020.  We will also be controlling for departments, class recommendations, and professor recommendations.
+|    Upper division courses are typically taken by students who have already attended college for one to two years and are specializing in a major already. Data for lower division courses may be misleading because the qualifications for who can enroll in these classes change and students in these courses are less accustomed to the college work style. We assume that the students of these populations would be more impacted by the natural disaster of the COVID-19 pandemic, which is why we are removing them from our study and will be looking at more seasoned college students. Additionally, UCSD has certain departments that are associated with the unique colleges, or their entry level writing program. Departments such as “Sixth College” and “Making of the Modern World” were not included in the dataset since they do not offer a major. Will be removing these from our study. 
+|
+
+## **Research Design**
+|    To determine the impact of the disruption of COVID-19 on the performance of UCSD students, we made a linear regression model to find any statistical significance between grades prior and during times of COVID-19. At first our team decided to analyze the effects of online learning on UCSD student performance, but after this research did not seem feasible with our data available and would be too reliant on previous literature over our own work. We decided it would be best to alter our research design and focus on the effects of COVID-19 overall on student grades and student behavior in terms of how they evaluate their instructor and course. Choosing to change our focus of research would allow us to reach more accurate conclusions from our data rather than relying on assumptions we cannot necessarily prove. We compare average grade received (“Avg.Grade.Received”), average grade expected (“Avg.Grade.Expected”), term (“Term”), class recommendations (“Rcmnd.Class”), instructor recommendations (“Rcmnd.Instr”), and department (“Department”) between the years 2016 and onward. We chose to look at these years for efficiency’s sake and to provide visualizations that are easier to understand for viewers. To summarize, we will measure performance as grades received in a course and compare it to how students evaluate their instructor and course over the years 2016 to 2022. 
+
+## **R Method Summary**
+  We analyze the effect of the COVID-19 pandemic on student grades at the University of California, San Diego (UCSD) using a variety of methods. The first method involved comparing average grades received during three time periods: Pre-COVID (Winter 2016 to Winter 2020), During COVID (Spring 2020 to Summer 2021), and Post-COVID (Fall 2021 to Fall 2022). The second method involved a linear regression analysis to investigate the relationship between time period and average grades received, controlling for potential confounding variables such as departmental membership and class recommendations. Additionally, scatterplots and boxplots were used to visualize the relationship between variables and identify potential outliers. Finally, statistical measures such as p-values and t-values were used to determine the significance of the results.
+
+## **Data **
+|    For our research we used data from Course and Professor Evaluations, more commonly known as CAPES. At the end of each quarter at UCSD each student is emailed an invitation to fill out a CAPES survey for each of their classes taken that quarter the week before they take their final exams. The survey contains many free response questions, but only numeric data is available for use. The numeric data includes the average percentage of students who recommend the professor, the average number of hours spent studying a week, and the average grade received. We chose to work with this dataset because CAPES has been conducted at UCSD for many years and it gave us the opportunity to look into data pre and post COVID-19. This dataset provides quantitative data, which is a lot more useful for answering our question than qualitative data considering our time restraints. 
+|    The website for CAPES allows the user to find courses by either selecting a department, inputting a course number, inputting the name of a professor, or some combination of the three. We filtered by department and the number “1” in the course number field to find the upper division classes from each UCSD department because UCSD upper division undergraduate courses are numbered 100 to 199. We then proceeded to paste the data from each department onto two CSV files, one with the courses from 2016 to 2019, and the other with courses from 2020-2022. 
+|    The key variables we will be looking at are:
+
+* **Average grade received (“Avg.Grade.Received”)**:  the average grade on the 4 point GPA scale that students received in the class. 
+* **Average grade expected (“Avg.Grade.Expected”)**:  the average grade on the 4 point GPA scale that the students expected to receive in the class during the last week of the class prior to finals.
+* **Evaluations made ("Evals.Made")**: the number of evaluations made for a course
+* **Term (“Term”)**: the quarter and year of the class.
+* **Course (“Course”)**: the unique UCSD code for a particular class.
+* **Class recommendations (“Rcmnd.Class”)**: the average percentage of evaluations of students who would recommend the class.
+* **Instructor recommendations (“Rcmnd.Instr”)**: the average percentage of evaluations of students who would recommend the instructor.
+* **Study hours per week (“Study.Hrs.wk”)**: the average number of hours student spent a week studying for a class
+* **Department (“Department”)**: which department a course is from.
+
+```{r import, echo = FALSE}
+# Import the two CSV files with header
+all_16 <- read.csv("all_16.csv", header = TRUE)
+all_20 <- read.csv("all_20.csv", header = TRUE)
+
+# Merge the two data frames
+merged_data <- rbind(all_16, all_20)
+
+```
+```{r, echo = FALSE}
+#show first couple of rows
+knitr::kable(head(merged_data, n = 5))
+```
+
+|    We believe that these measurements are valid because the surveys are conducted anonymously, therefore students are more likely to answer honestly. The evaluations are voluntary, however, some instructors offer incentives to complete the survey (i.e. if most of the class completes the evaluations, the entire class receives extra credit). The average grade received in a class is an objective measure of if someone does “good” in a class. Whether someone recommends a course or instructor is subjective, this dataset works well for our study which aims to evaluate how students are affected personally by events of a grand scale. Answers can also be biased, but considering we will be studying thousands of answers we can eliminate the issue. 
+
+### Cleaning the Data
+
+This data has some N/A values, as well as combinations of letters and numbers in the grades columns; therefore it is not ready for analysis. We modified the data in the following ways:
+
+1. removed all courses that had "N/A" in any column
+2. removed all non-numeric characters from Avg.Grade.Expected and Avg.Grade.Received
+3. removed all percentage signs from the Rcmnd.Class and	Rcmnd.Instr columns
+4. added a column for department
+5. added a column for year
+6. removed class names following the course number
+7. removed any departments that did not have at least 5 classes for each year we are considering(2016, 2017, 2018, 2019, 2020, 2021, 2022) in order to ensure that results are not influenced by a small sample size
+8. remove any non upper division classes(upper division classes are typically taken by students who have been in college for 1-2 years and who are specializing in that topic; data for lower division classes may be misleading, as qualifications for who can enroll in these classes constantly change and students are less accustomed to college work and thus might be more heavily impacted by natural disasters such as COVID)
+
+Additionally, UCSD has certain departments that are associated with the unique colleges, or their entry level writing program. Departments such as “Sixth College” and “Making of the Modern World” were not included in the dataset since they do not offer a major.
+We began with 18,003 rows of data. After the above modifications, we are left with 14,956 rows of data, which is still a large enough sample size to perform a complete and accurate analysis.
+
+## **Data Analysis & Results**
+
+```{r library, echo = FALSE}
+
+#import libraries needed 
+library(SCtools)
+library(Synth)
+library(rvest)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(viridis)
+library(ggthemes)
+library(stargazer)
+library(skimr)
+library(kableExtra)
+library(gridExtra)
+library(tidyr)
+library(broom)
+library(car)
+library(arsenal)
+
+# drop NA
+merged_data <- merged_data[!apply(merged_data, 1, function(x) any(grepl("N/A", x))), ]
+
+# Split "Avg.Grade.Expected" and "Avg.Grade.Received" columns by "(" and remove first element, unless there is no "("
+merged_data$`Avg.Grade.Expected` <- sapply(strsplit(merged_data$`Avg.Grade.Expected`, "\\("), function(x) ifelse(length(x) > 1, gsub("\\s+", "", x[2]), x))
+merged_data$`Avg.Grade.Received` <- sapply(strsplit(merged_data$`Avg.Grade.Received`, "\\("), function(x) ifelse(length(x) > 1, gsub("\\s+", "", x[2]), x))
+
+# Split "Avg.Grade.Expected" and "Avg.Grade.Received" columns by ")" and remove last element, unless there is no ")"
+merged_data$`Avg.Grade.Expected` <- sapply(strsplit(merged_data$`Avg.Grade.Expected`, "\\)"), function(x) ifelse(length(x) > 1, x[1], x))
+merged_data$`Avg.Grade.Received` <- sapply(strsplit(merged_data$`Avg.Grade.Received`, "\\)"), function(x) ifelse(length(x) > 1, x[1], x))
+
+#convert to numeric
+merged_data$Avg.Grade.Expected <- as.numeric(gsub("\\)$", "", gsub("^\\(", "", merged_data$Avg.Grade.Expected)))
+merged_data$Avg.Grade.Received <- as.numeric(gsub("\\)$", "", gsub("^\\(", "", merged_data$Avg.Grade.Received)))
+
+#remove percentage signs from the Rcmnd.Class and	Rcmnd.Instr columns and convert to numeric
+merged_data$Rcmnd.Class <- as.numeric(gsub("%", "", merged_data$Rcmnd.Class))
+merged_data$Rcmnd.Instr <- as.numeric(gsub("%", "", merged_data$Rcmnd.Instr))
+
+
+#create columns for department and year
+merged_data <- merged_data %>%
+  mutate(Department = sapply(strsplit(Course, " "), `[`, 1),
+         Year = paste0("20", substr(Term, nchar(Term)-1, nchar(Term))))
+
+#get rid of class name
+for(z in 1:length(merged_data$Course)){
+  merged_data$Course[z] <- strsplit(merged_data$Course[z], "-")[[1]][1]
+}
+
+# Replace values in the department column
+merged_data$Department <- ifelse(merged_data$Department %in% c('LTWL', 'LTFR', 'LTRU', 'LTIT', 'LTEN', 'LTSP', 'LTLA', 'LTGM', 'LTGK', 'LTWR', 'LTCS', 'LTKO', "LTAM", "LTCH", "LTEA", "LTEU", "LTTH"), 'LIT',
+                                 ifelse(merged_data$Department %in% c('TDAC', 'TDDE', 'TDDM', 'TDDR', 'TDGE', 'TDHD', 'TDHT', 'TDMV', 'TDPF', 'TDPR', 'TDPW', 'TDTR'), 'THEA',
+                                        ifelse(merged_data$Department %in% c("HIEA", "HIEU", "HILA", "HILD", "HINE", "HISC", "HIUS", "HITO"), 'HIST',
+                                               ifelse(merged_data$Department %in% c("NANO"), 'CENG',
+                                                      ifelse(merged_data$Department %in% c("LIGN", "LIHL"), 'LING',      
+                                                             ifelse(merged_data$Department %in% c('ANAR', 'ANBI', 'ANSC'), 'ANTH',
+                                                                    ifelse(merged_data$Department %in% c('BIBC', 'BICD', 'BIEB', 'BILD', 'BIMM', 'BIPN', 'BISP'), 'BIOL', merged_data$Department)))))))
+
+# remove any lower division classes
+merged_data <- merged_data %>%
+  mutate(num = strsplit(Course, " ")[[1]][2])
+
+merged_data <- merged_data %>%
+  filter(nchar(num) >= 3) %>%
+  mutate(num_first_3 = substr(num, 1, 3)) %>%
+  filter(str_detect(num_first_3, "^\\d+(\\.\\d+)?")) %>%
+  select(-num)
+
+#remove any departments that do not have at least 5 classes for each year
+merged_data <- merged_data %>%
+  group_by(Department, Year) %>%
+  filter(Year %in% c("2016", "2017", "2018", "2019", "2020", "2021", "2022") & n() >= 5)
+
+#arrange data by department and year
+merged_data <- merged_data %>%
+  arrange(Department, desc(Year))
+
+# Prepare data by finding the average mean grade by department 
+grade_data <- merged_data %>%
+  group_by(Department, Year) %>%
+  summarise_at(vars(Avg.Grade.Received), list(Avg.Grade = mean))
+
+# Prepare data by finding the average course recommendation by department 
+rec_data <- merged_data %>%
+  group_by(Department, Year) %>%
+  summarise_at(vars(Rcmnd.Class), list(Rcmnd.Class = mean))
+
+# Prepare data by finding the average course recommendation by instructor 
+instr_rec_data <- merged_data %>%
+  group_by(Department, Year) %>%
+  summarise_at(vars(Rcmnd.Instr), list(Rcmnd.Instr = mean))
+```
+``` {r first grade graphs, echo = FALSE}
+ggplot(grade_data, aes(x=Year, y=Avg.Grade , group=Department, color=Department)) +
+  geom_line() + 
+  scale_color_viridis(discrete = TRUE,option = "turbo", direction = -1) + 
+  theme_economist() +
+  geom_vline(xintercept=5, color = "steelblue", linetype = "dashed") +
+  labs(title="Average Grades from 2016-2022", 
+       y="Grade",x="Years", color = "Department") +
+  annotate("text", x = 3.5, y = 4, label = "Pre-COVID-19", size  =5, color = "Red") +
+  annotate("text", x = 6, y = 4, label = "COVID-19", size  =5, color = "Red")
+``` 
+
+``` {r first course rec graphs, echo = FALSE}
+ggplot(rec_data, aes(x=Year, y=Rcmnd.Class , group=Department, color=Department)) +
+  geom_line() + 
+  scale_color_viridis(discrete = TRUE,option = "turbo", direction = -1) + 
+  theme_economist() +
+  geom_vline(xintercept=5, color = "steelblue", linetype = "dashed") +
+  labs(title="Average Course Recomendation 2016-2022", 
+       y="Recommendations by Percentage",x="Years", color = "Department") +
+  annotate("text", x = 3.5, y = 105, label = "Pre-COVID-19", size  =5, color = "Red") +
+  annotate("text", x = 6, y =105, label = "COVID-19", size  =5, color = "Red")
+
+``` 
+
+``` {r first instructor rec graphs, echo = FALSE}
+ggplot(instr_rec_data, aes(x=Year, y=Rcmnd.Instr , group=Department, color=Department)) +
+  geom_line() + 
+  scale_color_viridis(discrete = TRUE,option = "turbo", direction = -1) + 
+  theme_economist() +
+  geom_vline(xintercept=5, color = "steelblue", linetype = "dashed") +
+  labs(title="Average Instructor Recomendation 2016-2022", 
+       y="Recommendations by Percentage",x="Years", color = "Department") +
+  annotate("text", x = 3.5, y = 100, label = "Pre-COVID-19", size  =5, color = "Red") +
+  annotate("text", x = 6, y =100, label = "COVID-19", size  =5, color = "Red")
+``` 
+
+
+## Average Grades Pre-COVID, During COVID, and Post-COVID
+
+We will begin with a comparison of average grades throughout the three time periods. UCSD typically has three quarters during the school year(FA = Fall, WI = Winter, SP = Spring), and three summer quarters(S1, S2, S3 - summer sessions 1, 2, and 3 respectively). In the United States, COVID-19 lockdown began on March 13th, 2020. Therefore, for our purposes, we will be considering WI16 (Winter Quarter of 2016) - WI20 (Winter Quarter of 2020) to be the "Pre-COVID" time period, a time of all in person learning, SP20 (Spring Quarter of 2020) - S321 (Summer Session 3 of 2021) to be the "During COVID" time period, when lectures were online, and FA21 (Fall Quarter of 2021) - FA22 (Fall Quarter of 2022) to be the "Post-COVID period, during which classes went back to in person. We assigned a time period to each observation.
+
+```{r echo = FALSE}
+# assign a chronological order to the quarters 
+
+merged_data$Term_order <- factor(merged_data$Term, levels = c("WI16", "SP16", "S116", "S216", "S316", "FA16", "WI17", "SP17", "S117", "S217", "S317", "FA17", "WI18", "SP18", "S118", "S218", "S318", "FA18", "WI19", "SP19", "S119", "S219", "S319", "FA19", "WI20", "SP20", "S120", "S220", "S320", "FA20", "WI21", "SP21", "S121", "S221", "S321", "FA21", "WI22", "SP22", "S122", "S222", "S322", "FA22"))
+
+#assign a time period to each observation
+
+merged_data <- merged_data %>%
+  mutate(Timeperiod = case_when(
+    Term_order %in% c("WI16", "SP16", "S116", "S216", "S316", "FA16", "WI17", "SP17", "S117", "S217", "S317", "FA17", "WI18", "SP18", "S118", "S218", "S318", "FA18", "WI19", "SP19", "S119", "S219", "S319", "FA19", "WI20") ~ "Pre-COVID",
+    Term_order %in% c("SP20", "S120", "S220", "S320", "FA20", "WI21", "SP21", "S121", "S221", "S321") ~ "During COVID",
+    Term_order %in% c("FA21", "WI22", "SP22", "S122", "S222", "S322", "FA22") ~ "Post-COVID",
+    TRUE ~ "Other"
+  ))
+
+#assign a chronological order to the time periods
+merged_data$Timeperiod <- factor(merged_data$Timeperiod, levels = c("Pre-COVID", "During COVID", "Post-COVID"))
+
+# Create a line graph of average grades over time
+ggplot(merged_data, aes(x = Term_order, y = Avg.Grade.Received, color = Timeperiod)) +
+  geom_line() +
+  labs(x = "Term", y = "Average Grade Received") + 
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(size=14, hjust = 0.5)) +
+  ggtitle("Average Grades Received Over Time") +
+  scale_color_discrete(name = "Time Period") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(plot.margin = unit(c(1, 1, 1, 1), "cm"))
+
+
+```
+
+## Average Grade Received as a Percentage of Average Grade Expected
+
+One way to measure the quality of a class is by examining the percentage of the expected grade that students actually received. This metric provides insights into factors such as the level of difficulty of the final exam, the rigor of grading on the final project, and the promptness of grade reporting by the professor. It's worth noting that our data comes from a survey conducted just before "Finals Week," which means that the only missing information about the students' grades is their final exam or project score. Additionally, if a professor did not report grades before the end of the quarter, students may also be missing information on earlier assessments or assignments. All of these factors can adversely impact the quality of the class. Therefore, we began our analysis by examining the trend of the average grade received as a percentage of the expected grade over time.
+
+```{r echo = FALSE, fig.width=10, fig.height=6}
+
+#create the ratio variable
+
+merged_data <- merged_data %>%
+  group_by(Term_order, Department) %>%
+  mutate(Avg_Grade_Ratio = 100 * mean(Avg.Grade.Received, na.rm = TRUE) / mean(Avg.Grade.Expected, na.rm = TRUE)) %>%
+  ungroup()
+
+# group by Department and Term
+
+filtered_data <- merged_data %>%
+  group_by(Term_order, Department)
+
+#set margins
+
+par(mar=c(5, 5, 4, 2) + 0.3) 
+
+
+ggplot(filtered_data, aes(x = Term_order, y = Avg_Grade_Ratio, color = Timeperiod)) +
+  geom_point(alpha = 0.3) +
+  labs(x = "Term", y = "Percentage") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(size=14)) +
+  ggtitle("Percentage of Average Grade Expected Achieved By Average Grade Received By Term") +
+  scale_color_discrete(name = "Time Period")
+```
+
+During the very first quarter of online learning(SP20), the percentage spikes, which means that students generally earned higher grades than they expected. This may be explained by professor inexperience with online instruction, resulting in more leniency with grading, or students being able to cheat more easily on exams. For the remained of the COVID online learning period, the percentage is lower or equal to that Pre-COVID. However, the range of values seems to decrease. The last three quarters of the online learning period show a general decrease in percentage; however, the same trend can be observed Pre-COVID. Post-COVID, the percentages continue to have a smaller range.
+
+An initial look at the average grades received across the three time periods, shows that the COVID period of online learning was associated with higher grades than the period before or after.
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+
+# Group by course and time period and calculate the average grade for each course for each time period
+
+merged_data_grouped <- merged_data %>%
+  filter(Timeperiod != "Other") %>%
+  group_by(Course, Timeperiod) %>%
+  summarise(Avg_Grade = mean(Avg.Grade.Received, na.rm = TRUE))
+
+# Calculate the average grade for each time period by taking the average of the averages of the courses
+
+time_period_averages <- merged_data_grouped %>%
+  group_by(Timeperiod) %>%
+  summarise(Avg_Grade = mean(Avg_Grade))
+
+kable(time_period_averages, col.names = c("Time Period", "Average Grade"))
+```
+
+Based on the earlier observations, it appears that there is an outlier in the Spring Quarter of 2020 that may have skewed the average for the "During COVID" period. As a result, when performing a regression analysis to investigate the relationship between the time period and average grades, it is crucial to consider both the linear regression models that include and exclude this outlier to ensure a more accurate understanding of the relationship.
+
+
+# Linear Regression - Is there an association between time period and average grades received?
+
+In order to observe the effects that online learning could have had on student performance, we will conduct a linear regression with time period as a predictor variable and average grade received as the response variable.
+
+## Possible Confounding Variables
+
+``` {r scatterplot of Rcmnd.Instr vs. Avg.Grade.Received, echo = FALSE}
+# create scatterplot of Rcmnd.Instr vs. Avg.Grade.Received
+ggplot(merged_data, aes(x = Rcmnd.Instr, y = Avg.Grade.Received)) + 
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Recommendation for Instructor", y = "Average Grade Received") +
+  ggtitle("Scatterplot of Recommendation for Instructor vs. Average Grade Received")
+```
+
+
+``` {r scatterplot of Rcmnd.Class vs. Avg.Grade.Received, echo = FALSE}
+# create scatterplot of Rcmnd.Class vs. Avg.Grade.Received
+ggplot(merged_data, aes(x = Rcmnd.Class, y = Avg.Grade.Received)) + 
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Recommendation for Class", y = "Average Grade Received") +
+  ggtitle("Scatterplot of Recommendation for Class vs. Average Grade Received")
+```
+
+
+``` {r boxplot of Department vs. Avg.Grade.Received, echo = FALSE}
+ggplot(merged_data, aes(x = Department, y = Avg.Grade.Received)) +
+  geom_boxplot() +
+  labs(x = "Department", y = "Avg.Grade.Received") + 
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(size=14)) +
+  ggtitle("Distribution of Average Grade Received By Department")
+```
+
+The scatterplots displayed above reveal a discernible linear association between the average grade received and the percentage of the class that endorses the instructor and the class itself. The boxplot provides evidence that the distribution of grades significantly differs across various academic departments, implying that the departmental membership of the class plays a crucial role in determining student grades. Consequently, in order to accurately estimate the effect of the COVID time period on grades received, the percentage of class recommendations and department membership on the average grade received must be explicitly controlled for within the linear regression model.
+
+<div>
+<center>
+  <h5><b>Regression Coefficients for Average Grade Received According to Time Period</b></h2>
+  </center>
+  
+```{r, echo = FALSE}
+model <- lm(Avg.Grade.Received ~ Timeperiod + Rcmnd.Class + Rcmnd.Instr + Department, data = merged_data)
+coef_table <- tidy(model)
+coef_table %>%
+  slice(1:5) %>%
+  kable(col.names = c("Term", "Estimate", "Std. Error", "t value", "Pr(>|t|)")) %>%
+  kable_styling(full_width = F)
+```
+</div>
+
+The linear regression analysis validates the aforementioned assertions regarding the noteworthy impact of class recommendations on the average grade received, as evidenced by the p-values being less than 0.01. Owing to the abundance of distinct academic departments, their individual effects on the average grade received have been omitted from the model to highlight the effect of the primary predictor variable - time period.
+
+The During COVID term has an estimate of 0.1880611 and a standard error of 0.0067179. This suggests that, on average, students received a higher grade during the COVID period compared to the pre-COVID period. Furthermore, the t-value of 27.99418 and p-value of 0.0000000 indicates that the effect of time period on the average grade received is highly significant. The Post-COVID term has an estimate of 0.0297702 and a standard error of 0.0078589. The t-value of 3.78810 and p-value of 0.0001524 suggests that, while the effect of the post-COVID period on the average grade received is statistically significant, it is not as pronounced as the effect of the COVID period.
+
+<div>
+<center>
+  <h5><b>Regression Coefficients for  Average Grade Received According to Time Period Excluding Spring 2020</b></h2>
+  </center>
+```{r, echo = FALSE}
+filtered_data <- merged_data %>%
+  filter(!grepl("SP20", Term_order))
+
+model <- lm(Avg.Grade.Received ~ Timeperiod + Rcmnd.Class + Rcmnd.Instr + Department, data = filtered_data)
+coef_table <- tidy(model)
+coef_table %>%
+  slice(1:5) %>%
+  kable(col.names = c("Term", "Estimate", "Std. Error", "t value", "Pr(>|t|)")) %>%
+  kable_styling(full_width = F)
+
+```
+</div>
+
+After excluding the Spring Quarter of 2020 (SP20), the results of the linear regression model show that the intercept is slightly higher at 2.9207, but the estimates for the other variables remain relatively consistent. The estimate for the "During COVID" predictor decreased from 0.1881 to 0.1393, indicating a weaker, but still positive relationship between the COVID-19 pandemic and average grade received after excluding SP20. This is consistent with earlier predictions. Thus, after professors and students adjusted to pandemic online learning, grades appeared to increase by 0.1393 from the pre-pandemic time period. As the grades are recorded in the form of GPA with a minimum of 0 and a maximum of 4, there was a 3.4825% increase in grades during the online learning period. After classes resumed in person, the average grades remained 0.74% higher than pre-COVID grades. The estimate for "Rcmnd.Class" increased from 0.0037 to 0.0043, indicating a stronger positive relationship between class recommendation and average grade received during COVID. The estimate for "Rcmnd.Instr" also increased from 0.0013 to 0.0016, indicating a stronger positive relationship between instructor recommendation and average grade received during COVID. 
+
+### Analysis of Variance
+
+Previous literature has demonstrated that the structure and design of a course implemented by a professor can significantly impact student academic achievement. Therefore, despite observing an increase in overall grades, it is plausible that the distribution of the grades has changed, which could potentially result in a larger variance. To explore this effect, one can employ an F-test.
+
+```{r, echo = FALSE}
+
+ggplot(merged_data, aes(x = Avg.Grade.Received)) +
+  geom_histogram(binwidth = .2) +
+  facet_wrap(~ Department, scales = "free") +
+  labs(x = "Average Grade Received", y = "Count")
+
+ggplot(merged_data, aes(sample = Avg.Grade.Received)) +
+  stat_qq() +
+  facet_wrap(~ Department, scales = "free") +
+  labs(x = "Theoretical Quantiles", y = "Sample Quantiles")
+
+
+
+```
+
+The F-test relies on two key assumptions: normality of data and independence of samples. While independence is a given in our study, normality must be carefully assessed. Normality can be assessed via visual inspections of histograms and QQ-plots. A histogram showing a bell-shaped distribution and a QQ-plot with a roughly linear pattern indicate that data follows a normal distribution. However, our analysis revealed that some of the departments did not have normally distributed grades. We attempted to conduct Levine's test as well as an F test on selected departments that did appear to be normally distributed, however many of them appeared to be missing necessary data, which meant that any results would only be generalization to a few departments. Though we were unable to compare variance, the reasons for which we were unable to do it still give valuable information.
+
+<div>
+<h5><b>Average Grades Distribution Pre, During, and Post-COVID </b></h2>
+```{r, echo = FALSE}
+
+ggplot(merged_data, aes(x = Avg.Grade.Received)) +
+  geom_histogram(binwidth = .2) +
+  facet_wrap(~ Timeperiod, scales = "free") +
+  labs(x = "Average Grade Received", y = "Count")
+
+
+```
+</div>
+
+As can be seen above, while grades are distributed normally Pre-COVID, during COVID, there is a significant dip in the number of courses achieving the second to highest grades(somewhere around 3.75). Post-COVID, this effect is still present, with an even lower number of courses achieving the highest and second to highest grades. 
+
+
+
+```{r, echo = FALSE}
+boxplot(Avg.Grade.Received ~ Timeperiod,
+  data = merged_data,
+  main = "Distribution of Average Grade Received By Time Period",
+  xlab = "Time Period",
+  ylab = "Average Grade Received",
+  col = "steelblue",
+  border = "black")
+```
+
+The boxplot shows that the range of grades for the middle 50% greatly shrunk, although it appeared to bounce back post-COVID. Notably both pre and during COVID, there appear to be many outliers on the lower side of average grades. After COVID, the same effect is not present. This is an interesting, although unexplained phenomenom.
+
+## **Key Findings**
+
+- The ratios of average grades received during online learning period (Spring Quarter 2020 - Summer Session 3 2021) to average grade expected were generally higher than pre- and post-COVID periods.
+- Average grades in the COVID period reached their peak in SPring 2020, the first quarter of online learning
+- Linear regression analysis shows a statistically significant positive effect of online learning period on average grades received (0.1881) and a weaker positive effect after excluding Spring Quarter 2020 (0.1393).
+- Other variables such as department membership and percentage of class recommendations affect average grades received and must be controlled for in the linear regression model.
+- During the COVID period, there was a stronger correlation between class recommendation and average grades received and instructor recommendation and average grades received
+- Distribution visualizations show a change in distribution of Average Grades Received from Pre-COVID to During COVID and from During COVID to Post-COVID
+
+## **Limitations Potential for Further Research**
+
+  Our study was limited to only one school and the available data. We discovered that the switch to online learning during the pandemic had a positive affect on student performance, although we can only speculate as to why. Future research can investigate the impact of a switch to online learning during a non-pandemic time; if the results remain consistent, then the effects we observed are due to online teaching methods rather than natural disasters. Furthermore, investigation can be done on the impact of various online teaching methods, such as synchronous vs. asynchronous instruction or the use of various digital tools, on student grades. UCSD professors were able to choose which methods they employed and we had no access to that data, thus limiting our analysis. Of interest would also be the long-term effects of the COVID-19 pandemic on student grades, including whether the grades earned during the pandemic will have a lasting impact on students' academic performance. We found that post pandemic, the distribution of grades changed, though we were not able to pinpoint a reason; this could be another pathway to explore.
+
+## **Conclusion**
+
+  Our analysis aimed to investigate the impact of the COVID-19 pandemic and the switch to online learning on student grades at UCSD. We compared the average grades received across three time periods - pre-COVID, during COVID, and post-COVID. Our findings indicated that the COVID period of online learning was associated with higher grades than the period before or after, but we observed an outlier in the Spring Quarter of 2020 that may have skewed the results. Therefore, we performed a linear regression analysis to investigate the relationship between the time period and average grades, controlling for confounding variables such as department membership and class recommendations. The results showed a statistically significant positive effect of the COVID period on the average grade received, even after excluding the outlier, suggesting that after professors and students adjusted to pandemic online learning, grades appeared to increase from the pre-pandemic time period. The effect of the post-COVID period on the average grade received was statistically significant but not as pronounced as the effect of the COVID period. These findings provide insights into the impact of the COVID-19 pandemic on student performance and can inform future decision-making around online learning.
+
+
+### **Works Cited** 
+
+Chiner, E., Gómez‐Puerta, M., García-Vera, V.E., & Cardona‐Moltó, M.C. (2021). UNIVERSITY STUDENTS’ STRUGGLES WITH ONLINE LEARNING DURING THE COVID-19 PANDEMIC LOCKDOWN. Education and New Developments 2021. https://doi.org/10.36315/2021end057 
+
+Dumford, A. D., & Miller, A. L. (2018). Online learning in higher education: exploring advantages and disadvantages for engagement. Journal of Computing in Higher Education, 30(3), 452-465. https://doi.org/10.1007/s12528-018-9179-z
+
+Engelhardt, B., Johnson, M., & Meder, M. E. (2021). Learning in the time of Covid-19: Some preliminary findings. International Review of Economics Education, 37, 100215. https://doi.org/10.1016/j.iree.2021.100215 
+
+Hadwin, A. F., Sukhawathanakul, P., Rostampour, R., & Bahena-Olivares, L. M. (2022). Do Self-Regulated Learning Practices and Intervention Mitigate the Impact of Academic Challenges and COVID-19 Distress on Academic Performance During Online Learning? Frontiers in Psychology, 13, 813529. https://doi.org/10.3389/fpsyg.2022.813529
+
+Meeter, M., Bele, T., Hartogh, C. d., Bakker, T., de Vries, R. E., & Plak, S. (2020, October 11). College students’ motivation and study results after COVID-19 stay-at-home orders. https://doi.org/10.31234/osf.io/kn6v9
+
+UC San Diego Division of Extended Studies. “Covid-19 Updates.” UC San Diego Division of Extended Studies, UC San Diego Division of Extended Studies, https://extendedstudies.ucsd.edu/student-resources/covid-19-updates. 
